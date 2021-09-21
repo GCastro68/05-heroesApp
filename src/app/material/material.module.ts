@@ -10,6 +10,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   exports: [
@@ -24,6 +25,7 @@ import { MatInputModule } from '@angular/material/input';
     MatGridListModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSelectModule,
   ],
 })
 export class MaterialModule {}
