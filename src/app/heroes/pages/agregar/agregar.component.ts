@@ -79,13 +79,18 @@ export class AgregarComponent implements OnInit {
   }
 
   borrarHeroe() {
-    this.dialog.open(ConfirmarComponent, {
+    const dialog = this.dialog.open(ConfirmarComponent, {
       width: '250px',
+      data: { ...this.heroe }, // donde ... es el operador spread, con esto le mando la inf. del héroe al diálogo
     });
 
-    // this.heroesService.borrarHeroe(this.heroe.id!).subscribe((resp) => {
-    //   this.router.navigate(['/heroes']);
-    // });
+    dialog.afterClosed().subscribe((result) => {
+      if (result) {
+        this.heroesService.borrarHeroe(this.heroe.id!).subscribe((resp) => {
+          this.router.navigate(['/heroes']);
+        });
+      }
+    });
   }
 
   mostrarSnackbar(mensaje: string) {
